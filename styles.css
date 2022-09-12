@@ -1,0 +1,11 @@
+#gridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /*stretches grid to fill page, but just short of full page, so no scrolling needed */
+    height: 98vh;
+}
+
+.gridSquare {
+    border: 1px solid black;
+    padding: 50px;
+}
