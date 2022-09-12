@@ -1,11 +1,17 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
 #gridContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     /*stretches grid to fill page, but just short of full page, so no scrolling needed */
     height: 98vh;
+    padding: 10px;
 }
 
 .gridSquare {
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 50px;
 }
