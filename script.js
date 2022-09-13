@@ -6,12 +6,28 @@ function generateGrid(gridSize) {
 
    gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
 
+   function randomInteger(num) {
+     return Math.floor(Math.random() * (num + 1));
+   };
+
     let totalBoxes = gridSize * gridSize;
     for (let i = 0; i < totalBoxes; i++) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("gridSquare");
+        //adds the event listener and logic to execute when a grid square is moused over
         newDiv.addEventListener('mouseover', function handleMouseOver() {
-            newDiv.style.background = 'black';
+            //checks what mode's selected
+            // generates random number values and combines them together to get an rgb value
+            //sets the background of the div to those values
+            if (RGBMode == true) {
+                let r = randomInteger(255);
+                let g = randomInteger(255);
+                let b = randomInteger(255);
+                newDiv.style.background = `rgb(${r}, ${g}, ${b})`;
+            }else if (RGBMode == false) {
+                newDiv.style.background = 'black';
+                console.log(RGBMode);
+            }
         })
         gridContainer.appendChild (newDiv);
     }
@@ -65,6 +81,25 @@ function clearSquares() {
 
 }
 
+function toggleColourMode() {
+    //handles the button text and sets a boolean accordingly to toggle colour mode
+    let toggleBtn = document.getElementById("btnRGB");
+
+    if (toggleBtn.innerText == "RGB Colour Mode") {
+        toggleBtn.innerText = "Black/White Colour Mode"
+        RGBMode = true;
+        
+    }else if (toggleBtn.innerText == "Black/White Colour Mode") {
+        toggleBtn.innerText = "RGB Colour Mode";
+        RGBMode = false;
+    }
+}
+
+//default values set for the grid size and RGB mode
+
 let defaultGridSize = 16;
 
+let RGBMode = false;
+
+//generates the default grid on page load
 generateGrid(defaultGridSize);
