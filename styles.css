@@ -11,10 +11,14 @@ body {
 }
 
 .gridSquare {
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
-#btnUserInput {
+.btnContainer {
+    display: flex;
+}
+
+.btnStyle {
    margin: 20px;
    padding: 10px;
    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

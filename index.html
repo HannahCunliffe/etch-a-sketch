@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="./styles.css"> 
 </head>
 <body>
-    <button id="btnUserInput" onclick="takeUserInput()"> Change grid size </button>
+    <div class="btnContainer">
+        <button id="btnUserInput" onclick="takeUserInput()" class="btnStyle"> Change grid size </button>
+        <button id="resetColours" class="btnStyle" onclick="clearSquares()"> Clear Squares </button>
+    </div>
     <div id="gridContainer">
 
     </div>

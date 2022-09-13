@@ -11,7 +11,7 @@ function generateGrid(gridSize) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("gridSquare");
         newDiv.addEventListener('mouseover', function handleMouseOver() {
-            newDiv.style.background = 'blue';
+            newDiv.style.background = 'black';
         })
         gridContainer.appendChild (newDiv);
     }
@@ -39,7 +39,7 @@ function takeUserInput() {
     return userInput;
 }
 
-//function to clear the grid
+//function to remove the current grid
 function clearGrid() {
 
     //finds every element labelled a grid square in the document
@@ -47,8 +47,21 @@ function clearGrid() {
 
     //loops through as many elements as are in the grid and removes them one by one
     for (let i = gridBoxes.length - 1; i >= 0; i--) {
-        gridBoxes[0].remove();
+        gridBoxes[i].remove();
     }
+
+}
+
+//function to reset the colours in all the squares currently in the box
+function clearSquares() {
+    //finds every element labelled a grid square in the document
+  const gridBoxes = document.getElementsByClassName("gridSquare");
+
+    //loops through as many elements as are in the grid and changes their colour back
+    //to white
+   for (let i = gridBoxes.length - 1; i >= 0; i--) {
+        gridBoxes[i].style.background = 'white';
+   }
 
 }
 
